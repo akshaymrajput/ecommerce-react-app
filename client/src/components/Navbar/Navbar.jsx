@@ -10,33 +10,7 @@ import { Link } from "react-router-dom";
 
 import "./Navbar.scss";
 
-const components = (
-  <>
-    <li>
-      <Link className="link" to={"/products/1"}>
-        Graphics Card
-      </Link>
-    </li>
-    <li>
-      <Link className="link" to={"/products/2"}>
-        Processor
-      </Link>
-    </li>
-    <li>
-      <Link className="link" to={"/products/3"}>
-        Motherboard
-      </Link>
-    </li>
-    <li>
-      <Link className="link" to={"/products/4"}>
-        Others
-      </Link>
-    </li>
-  </>
-);
-
 const Navbar = () => {
-  const [isActive, setIsActive] = useState(false);
   return (
     <div className="navbar">
       <div className="wrapper">
@@ -50,10 +24,26 @@ const Navbar = () => {
             <ExpandMoreIcon />
           </div>
           <div className="item">
-            <ul>
-              <span onClick={() => setIsActive(!isActive)}>PC Components</span>
-              {isActive && components}
-            </ul>
+            <div className="components">
+              <span>PC Components</span>
+              <ul className="components__list">
+                <Link className="link" to={"/products/1"}>
+                  <li>Graphics Card</li>
+                </Link>
+
+                <Link className="link" to={"/products/2"}>
+                  <li>Processor</li>
+                </Link>
+
+                <Link className="link" to={"/products/3"}>
+                  <li>Motherboard</li>
+                </Link>
+
+                <Link className="link" to={"/products/4"}>
+                  <li>Others</li>
+                </Link>
+              </ul>
+            </div>
           </div>
         </div>
         <div className="center">

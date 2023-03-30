@@ -16,6 +16,42 @@
       display: flex;
       align-items: center;
       gap: 25px;
+
+      .item {
+        position: relative;
+
+        .components {
+          &:hover .components__list {
+            display: block;
+          }
+        }
+
+        .components__list {
+          position: absolute;
+          list-style: none;
+          left: 0px;
+          text-indent: 0;
+          text-align: center;
+          margin: 0;
+          padding: 0px;
+          width: 150px;
+          display: none;
+          border: 1px solid #777;
+          // border-radius: 10px;
+
+          a:last-of-type li {
+            border-bottom: none;
+          }
+
+          li {
+            line-height: 40px;
+            width: 100%;
+            display: inline-block;
+            border-bottom: 1px solid #777;
+            overflow: hidden;
+          }
+        }
+      }
     }
     .center {
       font-size: 30px;
@@ -37,7 +73,7 @@
         .cartIcon {
           position: relative;
           span {
-            font-size: 20px;
+            font-size: 12px;
             width: 20px;
             height: 20px;
             background-color: #2879fe;

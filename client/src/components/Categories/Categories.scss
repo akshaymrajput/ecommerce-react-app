@@ -8,15 +8,65 @@
     flex: 1;
     display: flex;
     flex-direction: column;
+    gap: 10px;
   }
 
   .col-l {
     flex: 2;
+
+    .row {
+      gap: 5px;
+    }
   }
 
   .row {
     flex: 1;
     display: flex;
-    gap: 10px;
+    position: relative;
+
+    button {
+      position: absolute;
+      min-width: 100px;
+      width: fit-content;
+      height: 50px;
+      padding: 10px;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+      cursor: pointer;
+      border: none;
+      background-color: white;
+      text-transform: uppercase;
+      font-weight: 500;
+      overflow: hidden;
+    }
+
+    [class*="cb-"] {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      background-color: gray;
+    }
+
+    .cb-1 {
+      background: linear-gradient(#ffd3a5, #fd6585);
+    }
+    .cb-2 {
+      background: linear-gradient(#0f3443, #34e89e);
+    }
+    .cb-3 {
+      background: linear-gradient(#12c2e9, #f64f59);
+    }
+    .cb-4 {
+      background: linear-gradient(#fccf31, #f55555);
+    }
+    .cb-5 {
+      background: linear-gradient(#7f7fd5, #91eae4);
+    }
+    .cb-6 {
+      background: linear-gradient(#3e5151, #decba4);
+    }
   }
 }

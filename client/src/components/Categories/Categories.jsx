@@ -8,13 +8,13 @@ const Categories = () => {
       <div className="col">
         <div className="row">
           <div className="cb-1"></div>
-          <Link className="link" to="/products/1">
-            <button>Sale</button>
+          <Link className="link" to="/products/6">
+            <button>All Products</button>
           </Link>
         </div>
         <div className="row">
           <div className="cb-2"></div>
-          <Link className="link" to="/products/1">
+          <Link className="link" to="/products/5">
             <button>New Arrivals</button>
           </Link>
         </div>
@@ -32,7 +32,7 @@ const Categories = () => {
           <div className="col">
             <div className="row">
               <div className="cb-4"></div>
-              <Link className="link" to="/products/1">
+              <Link className="link" to="/products/3">
                 <button>RAM</button>
               </Link>
             </div>
@@ -40,7 +40,7 @@ const Categories = () => {
           <div className="col">
             <div className="row">
               <div className="cb-5"></div>
-              <Link className="link" to="/products/1">
+              <Link className="link" to="/products/4">
                 <button>Motherboard</button>
               </Link>
             </div>
@@ -48,7 +48,7 @@ const Categories = () => {
         </div>
         <div className="row">
           <div className="cb-6"></div>
-          <Link className="link" to="/products/1">
+          <Link className="link" to="/products/2">
             <button>Processor</button>
           </Link>
         </div>

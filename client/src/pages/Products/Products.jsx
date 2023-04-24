@@ -6,12 +6,24 @@ import useFetch from "../../hooks/useFetch";
 
 const Products = () => {
   const categoryID = parseInt(useParams().id);
-  const [maxPrice, setMaxPrice] = useState(1000);
+  const [maxPrice, setMaxPrice] = useState(100000);
   const [sort, setSort] = useState(null);
+  const [selectedSubCats, setSelectedSubCats] = useState([]);
 
   const { data, loading, error } = useFetch(
     `/sub-categories?[filters][categories][id][$eq]=${categoryID}`
   );
+
+  const handleChange = (e) => {
+    const value = e.target.value;
+    const isChecked = e.target.checked;
+
+    setSelectedSubCats(
+      isChecked
+        ? [...selectedSubCats, value]
+        : selectedSubCats.filter((item) => item !== value)
+    );
+  };
 
   return (
     <div className="products">
@@ -20,7 +32,12 @@ const Products = () => {
           <h2>Product Categories</h2>
           {data?.map((item) => (
             <div className="inputItem" key={item.id}>
-              <input type="checkbox" id={item.id} value={item.id} />
+              <input
+                type="checkbox"
+                id={item.id}
+                value={item.id}
+                onChange={handleChange}
+              />
               <label htmlFor={item.id}>{item.attributes.title}</label>
             </div>
           ))}
@@ -32,7 +49,7 @@ const Products = () => {
             <input
               type="range"
               min={0}
-              max={1000}
+              max={100000}
               onChange={(e) => setMaxPrice(e.target.value)}
             />
             <span>{maxPrice}</span>
@@ -68,7 +85,12 @@ const Products = () => {
           src="https://neweraelectronics.com/wp-content/uploads/electricity-1288717_1920.jpg"
           alt=""
         />
-        <List categoryID={categoryID} maxPrice={maxPrice} sort={sort} />
+        <List
+          categoryID={categoryID}
+          maxPrice={maxPrice}
+          sort={sort}
+          subCats={selectedSubCats}
+        />
       </div>
     </div>
   );

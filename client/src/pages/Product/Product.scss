@@ -100,6 +100,13 @@
       font-size: 14px;
       margin-top: 30px;
 
+      .manufacturer {
+        font-size: 18px;
+        span:last-of-type {
+          color: #2879fe;
+        }
+      }
+
       hr {
         width: 200px;
         border: 1px solid rgb(237, 237, 237);

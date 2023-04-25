@@ -7,10 +7,8 @@ const List = ({ subCats, maxPrice, sort, categoryID }) => {
   const { data, loading, error } = useFetch(
     `/products?populate=*&[filters][categories][id]=${categoryID}${subCats
       .map((item) => `&[filters][sub_categories][id][$eq]=${item}`)
-      .join("")}`
+      .join("")}&[filters][price][$lte]=${maxPrice}&sort=price:${sort}`
   );
-
-  console.log(data);
 
   return (
     <div className="list">

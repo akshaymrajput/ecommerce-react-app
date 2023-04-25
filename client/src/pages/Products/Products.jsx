@@ -7,7 +7,7 @@ import useFetch from "../../hooks/useFetch";
 const Products = () => {
   const categoryID = parseInt(useParams().id);
   const [maxPrice, setMaxPrice] = useState(100000);
-  const [sort, setSort] = useState(null);
+  const [sort, setSort] = useState("asc");
   const [selectedSubCats, setSelectedSubCats] = useState([]);
 
   const { data, loading, error } = useFetch(

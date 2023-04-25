@@ -5,6 +5,8 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import BalanceIcon from "@mui/icons-material/Balance";
 import useFetch from "../../hooks/useFetch";
 import { useParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../redux/cartReducer";
 
 const Product = () => {
   const categoryID = parseInt(useParams().id);
@@ -14,6 +16,7 @@ const Product = () => {
 
   const upload = import.meta.env.VITE_REACT_APP_UPLOAD_URL;
 
+  const dispatch = useDispatch();
   const { data, loading, error } = useFetch(
     `/products?populate=*&/product/=${id}`
   );
@@ -79,7 +82,24 @@ const Product = () => {
               {quantity}
               <button onClick={() => setQuantity((prev) => prev + 1)}>+</button>
             </div>
-            <button className="add">
+            <button
+              className="add"
+              onClick={() =>
+                dispatch(
+                  addToCart({
+                    id: currentProductData?.id,
+                    title: currentProductData?.attributes?.title,
+                    desc: currentProductData?.attributes?.desc,
+                    price: currentProductData?.attributes?.price,
+                    img1:
+                      upload +
+                      currentProductData?.attributes?.img1?.data?.attributes
+                        ?.url,
+                    quantity,
+                  })
+                )
+              }
+            >
               <AddShoppingCartIcon /> ADD TO CART
             </button>
             <div className="links">
